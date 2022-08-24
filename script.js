@@ -120,29 +120,37 @@ function saveSpacePlayed (index, symbol) {
 }
 
 function isThreeInLine(symbol) {
-    [   // 0
-    //   0 1 2
-        [1,2,3],
-        // 1
-    //   0 1 2
-        [4,5,6],
-        // 2
-    //   0 1 2
-        [7,8,9]
-    ]
-
-    // match rows
-    // top [0,0] + [0,1] + [0,2]
-    // middle [1,0] + [1,1] + [1,2]
-    // bottom [2,0] + [2,1] + [2,2]
-
-    // match columns
-    // left [0,0] + [1,0] + [2,0]
-    // middle [0,1] + [1,1] + [2,1]
-    // right [0,2] + [1,2] + [2,2]
-
-    // match diagonals
-    // left to right [0,0] + [1,0] + [2,0]
-    // right to left [0,1] + [1,1] + [2,1]
-
+    //[   // 0
+    //     0 1 2
+    //    [1,2,3],
+    //       1
+    //     0 1 2
+    //    [4,5,6],
+    //       2
+    //     0 1 2
+    //    [7,8,9]
+    //]
+        // match top row
+    if (
+        (board[0][0] == symbol && board[0][1] == symbol && board[0][2] == symbol) || 
+        // match middle row
+        (board[1][0] == symbol && board[1][1] == symbol && board[1][2] == symbol) ||
+        // match bottom row
+        (board[2][0] == symbol && board[2][1] == symbol && board[2][2] == symbol) ||
+        //match left column
+        (board[0][0] == symbol && board[1][0] == symbol && board[2][0] == symbol) ||
+        // match middle column
+        (board[0][1] == symbol && board[1][1] == symbol && board[2][1] == symbol) ||
+        // match right column
+        (board[0][2] == symbol && board[1][2] == symbol && board[2][2] == symbol) ||
+        // match left to right diagonal
+        (board[0][0] == symbol && board[1][1] == symbol && board[2][2] == symbol) ||
+        // match right to left diagonal
+        (board[0][2] == symbol && board[1][1] == symbol && board[2][0] == symbol)
+        )
+    {
+        return true;
+    }else{
+        return false;
+    }
 }
