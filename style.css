@@ -1,0 +1,51 @@
+body{
+    padding: 40px;
+    font-family: 'Montserrat', 'sans-serif';
+    font-size: 20px;
+}
+
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.d-grid{
+    margin: 0 auto;
+    margin-top: 20px;
+    display: grid;
+    background-color: rgba(0, 0, 0, 0.152);
+    width: 400px;
+    height: 400px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 3px;
+    box-shadow: 1px 5px 50px rgba(0, 0, 0, 0.3);
+}
+
+.space{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s;
+}
+
+.space:hover{
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.5s;
+}
+
+.p1, .o{
+    color: tomato;
+}
+
+.p2, .x{
+    color: #00a1ec;
+}
+
+.x, .o{
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
