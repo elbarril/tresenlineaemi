@@ -1,5 +1,5 @@
 // tablero para trabajar la lógica para encontrar ganador
-let board = [
+var board = [
     [1,2,3],
     [4,5,6],
     [7,8,9]
@@ -120,7 +120,7 @@ function saveSpacePlayed (index, symbol) {
 }
 
 function isThreeInLine(symbol) {
-    //[   // 0
+    //[      0
     //     0 1 2
     //    [1,2,3],
     //       1
@@ -130,8 +130,8 @@ function isThreeInLine(symbol) {
     //     0 1 2
     //    [7,8,9]
     //]
-        // match top row
-    if (
+
+    if (// match top row
         (board[0][0] == symbol && board[0][1] == symbol && board[0][2] == symbol) || 
         // match middle row
         (board[1][0] == symbol && board[1][1] == symbol && board[1][2] == symbol) ||
@@ -146,11 +146,28 @@ function isThreeInLine(symbol) {
         // match left to right diagonal
         (board[0][0] == symbol && board[1][1] == symbol && board[2][2] == symbol) ||
         // match right to left diagonal
-        (board[0][2] == symbol && board[1][1] == symbol && board[2][0] == symbol)
-        )
+        (board[0][2] == symbol && board[1][1] == symbol && board[2][0] == symbol) )
     {
         return true;
     }else{
         return false;
     }
+}
+
+function reset() {
+    players.forEach(p => {
+        p.isTurn = (p.id == 1) ? true : false;
+        p.won = false;
+        $('.'+p.symbol).remove();
+    });
+    spaces.forEach(s => {
+        s.played = false;
+    });
+    board = [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9]
+    ];
+    $('.heading').text('Tres en línea');
+    $('.heading').css('color', 'black');
 }
